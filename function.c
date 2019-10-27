@@ -21,10 +21,10 @@ struct node * insert_front(struct node *linkedList, int newi){
 
 struct node * free_list(struct node * input){
   struct node * start = input;
-  while (input->next != NULL){
-    struct node * temp = input->next;
-    input->next = NULL;
-    input = temp;
+  while (start->next != NULL){
+    struct node * temp = start->next;
+    start->next = NULL;
+    start = temp;
   }
   return start;
 }
