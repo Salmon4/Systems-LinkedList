@@ -34,14 +34,13 @@ struct node * free_list(struct node * input){
 
 struct node * remove_node(struct node *front, int data){
   struct node *start = front;
-  struct node *current = start;
+  struct node *current = front;
   if (start == NULL){
     return front;
   }
   if (current->i == data){
-    start = start->next;
     free(start);
-    front = start->next;
+    front = front->next;
     return front;
   }
   while (start->i != data){
@@ -99,5 +98,9 @@ int main(){
   print_list(bunch);
 
   printf("\n");
+
+  printf("Removing 0; \n");
+  bunch = remove_node(bunch,0);
+  print_list(bunch);
 
 }
