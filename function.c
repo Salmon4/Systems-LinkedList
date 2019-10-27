@@ -5,9 +5,9 @@ struct node { int i; struct node *next; };
 
 void print_list(struct node *linkedList){
   struct node *start = linkedList;
-  printf("[");
+  printf("[ ");
   while (start != NULL){
-    printf("%d", start->i);
+    printf("%d ", start->i);
     start = start->next;
   }
   printf("]");
@@ -18,7 +18,7 @@ struct node * insert_front(struct node *linkedList, int newi){
   struct node *input = malloc(sizeof(struct node));
   input->i = newi;
   input->next = linkedList;
-  return linkedList;
+  return input;
 }
 
 struct node * free_list(struct node * input){
@@ -63,30 +63,41 @@ int main(){
   printf("Adding number 0 to 9 to list:");
   int i;
   for (i = 0; i < 10; i++){
-    insert_front(bunch, i);
+    bunch = insert_front(bunch, i);
   }
   printf("\nPrinting result: \n");
   print_list(bunch);
 
   printf("\n");
+
   printf("Removing 4: \n");
-  remove_node(bunch,4);
+  bunch=remove_node(bunch,4);
   print_list(bunch);
+
   printf("\n");
+
   printf("Removing 1: \n");
-  remove_node(bunch,1);
+  bunch = remove_node(bunch,1);
   print_list(bunch);
+
   printf("\n");
+
   printf("Removing 5: \n");
-  remove_node(bunch,5);
+  bunch = remove_node(bunch,5);
   print_list(bunch);
+
   printf("\n");
+
   printf("Removing 9: \n");
-  remove_node(bunch,9);
+  bunch = remove_node(bunch,9);
   print_list(bunch);
+
   printf("\n");
+
   printf("Removing 7: \n");
-  remove_node(bunch,7);
+  bunch = remove_node(bunch,7);
   print_list(bunch);
+
   printf("\n");
+
 }
