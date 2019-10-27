@@ -4,15 +4,16 @@
 struct node { int i; struct node *next; };
 
 void print_list(struct node *linkedList){
-  while (linkedList->next != NULL){
-    printf("%d", linkedList->i);
-    linkedList = linkedList->next;
+  struct node *start = linkedList
+  while (start != NULL){
+    printf("%d", start->i);
+    start = start->next;
   }
 }
 
 
 struct node * insert_front(struct node *linkedList, int newi){
-  struct node input;
+  struct node *input = malloc(sizeof(struct node));
   input.i = newi;
   input.next = linkedList;
   return linkedList;
